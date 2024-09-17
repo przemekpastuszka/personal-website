@@ -1,0 +1,295 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Przemek Pastuszka - profile page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #ffffff;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li:hover {
+            background-color: #f4f4f9;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: #333;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        /* Mobile Navigation Toggle (Hamburger Menu) */
+        .mobile-nav-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        header {
+            background: #4a90e2;
+            padding: 30px 0;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+
+        /* Hero Section */
+        .hero {
+            background: #f4f4f9;
+            padding: 50px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .hero .content {
+            flex: 1;
+            max-width: 600px;
+            padding-right: 20px;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero .cta {
+            padding: 12px 30px;
+            background-color: #4a90e2;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .hero .cta:hover {
+            background-color: #357ABD;
+        }
+
+        .hero .image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero .image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .feature {
+            background: white;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #4a90e2;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                text-align: center;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            .mobile-nav-toggle {
+                display: block;
+                color: #333;
+            }
+
+            .hero {
+                flex-direction: column;
+            }
+
+            .hero .content {
+                padding-right: 0;
+            }
+        }
+    </style>
+</head>
+<body id="app">
+
+<nav>
+    <div class="container">
+        <h1 class="logo">Przemek Pastuszka</h1>
+        <ul v-bind:class="{ show: isMenuVisible }" id="nav-list">
+            <li><a href="#hero" @click="toggleMenu">About</a></li>
+            <li><a href="#features" @click="toggleMenu">Experience</a></li>
+            <li><a href="#services" @click="toggleMenu">Education</a></li>
+            <li><a href="#contact" @click="toggleMenu">Contact</a></li>
+        </ul>
+        <span class="mobile-nav-toggle" @click="toggleMenu">&#9776;</span>
+    </div>
+</nav>
+
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+    <div class="container">
+        <div class="content">
+            <h2>Welcome to my personal website</h2>
+            <p>I'm an engineer at heart</p>
+        </div>
+        <div class="image">
+            <img src="https://via.placeholder.com/500x300" alt="Placeholder Image">
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features">
+    <div class="container">
+        <h2>Work experience</h2>
+        <div class="feature">
+            <h3>Feature 1</h3>
+            <p>Aliquam tincidunt mauris eu risus. Vivamus vestibulum nisl eget ipsum volutpat vel pretium metus condimentum.</p>
+        </div>
+        <div class="feature">
+            <h3>Feature 2</h3>
+            <p>Phasellus lacinia metus eget erat condimentum, id gravida ex cursus. Nulla facilisi. Nullam scelerisque turpis sit amet.</p>
+        </div>
+        <div class="feature">
+            <h3>Feature 3</h3>
+            <p>Fusce condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2024 Przemek Pastuszka. All Rights Reserved.</p>
+</footer>
+</body>
+</html>
+
+<script type="module">
+    import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+
+    createApp({
+        data() {
+            return {
+                isMenuVisible: false
+            }
+        },
+        methods: {
+            toggleMenu() {
+                this.isMenuVisible = !this.isMenuVisible;
+            }
+        },
+    }).mount('#app')
+</script>
