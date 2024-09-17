@@ -147,7 +147,7 @@
 
         /* Features Section */
         .features {
-            padding: 50px 20px;
+            padding: 10px 20px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
@@ -160,10 +160,6 @@
             border-radius: 10px;
             transition: transform 0.3s ease;
             margin-top: 10px;
-        }
-
-        .feature:hover {
-            transform: translateY(-10px);
         }
 
         .feature h3 {
@@ -193,7 +189,7 @@
         /* Media Queries for Mobile Responsiveness */
         @media (max-width: 768px) {
             nav ul {
-                display: none;
+                //display: none;
                 flex-direction: column;
                 position: absolute;
                 top: 80px;
@@ -222,15 +218,15 @@
         }
     </style>
 </head>
-<body id="app">
+<body>
 
-<nav>
+<nav id="app">
     <div class="container">
         <h1 class="logo">Przemek Pastuszka</h1>
-        <ul v-bind:class="{ show: isMenuVisible }" id="nav-list">
-            <li><a href="#hero" @click="toggleMenu">About</a></li>
-            <li><a href="#features" @click="toggleMenu">Experience</a></li>
-            <li><a href="#services" @click="toggleMenu">Education</a></li>
+        <ul v-if="isMenuVisible" id="nav-list">
+            <li><a href="#about" @click="toggleMenu">About</a></li>
+            <li><a href="#experience" @click="toggleMenu">Experience</a></li>
+            <li><a href="#education" @click="toggleMenu">Education</a></li>
             <li><a href="#contact" @click="toggleMenu">Contact</a></li>
         </ul>
         <span class="mobile-nav-toggle" @click="toggleMenu">&#9776;</span>
@@ -239,7 +235,7 @@
 
 
 <!-- Hero Section -->
-<section class="hero" id="hero">
+<section class="hero" id="about">
     <div class="container">
         <div class="content">
             <h2>Welcome to my personal website</h2>
@@ -252,9 +248,28 @@
 </section>
 
 <!-- Features Section -->
-<section id="features" class="features">
+<section id="experience" class="features">
     <div class="container">
         <h2>Work experience</h2>
+        <div class="feature">
+            <h3>Feature 1</h3>
+            <p>Aliquam tincidunt mauris eu risus. Vivamus vestibulum nisl eget ipsum volutpat vel pretium metus condimentum.</p>
+        </div>
+        <div class="feature">
+            <h3>Feature 2</h3>
+            <p>Phasellus lacinia metus eget erat condimentum, id gravida ex cursus. Nulla facilisi. Nullam scelerisque turpis sit amet.</p>
+        </div>
+        <div class="feature">
+            <h3>Feature 3</h3>
+            <p>Fusce condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="education" class="features">
+    <div class="container">
+        <h2>Education</h2>
         <div class="feature">
             <h3>Feature 1</h3>
             <p>Aliquam tincidunt mauris eu risus. Vivamus vestibulum nisl eget ipsum volutpat vel pretium metus condimentum.</p>
