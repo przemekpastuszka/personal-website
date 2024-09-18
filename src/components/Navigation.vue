@@ -1,30 +1,37 @@
 <template>
-  <nav class="bg-white fixed top-0 left-0 right-0 flex flex-row justify-evenly shadow-lg p-4">
-    <h1 class="text-xl font-medium">Przemek Pastuszka</h1>
-    <ul :class="{hidden: !isMenuVisible}" class="flex flex-col space-between gap-5 font-medium md:flex md:flex-row">
-      <li><a href="#about" class="hover:bg-slate-200" @click="toggleMenu">About</a></li>
-      <li><a href="#experience" class="hover:bg-slate-200" @click="toggleMenu">Experience</a></li>
-      <li><a href="#education" class="hover:bg-slate-200" @click="toggleMenu">Education</a></li>
+  <nav class="bg-white py-5 sticky top-0 w-full shadow-md z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Przemek Pastuszka</h1>
+      <ul
+          :class="{'flex': isMenuVisible, 'hidden': !isMenuVisible }"
+          class="hidden md:flex space-x-8"
+      >
+        <li v-for="section in sections" :key="section">
+          <a :href="'#' + section" @click="toggleMenu" class="text-gray-800 hover:text-blue-500 uppercase">{{ section }}</a>
+        </li>
+      </ul>
+
+      <span
+          class="md:hidden text-3xl cursor-pointer"
+          @click="toggleMenu"
+      >&#9776;</span>
+    </div>
+
+    <ul
+        :class="{'block': isMenuVisible, 'hidden': !isMenuVisible }"
+        class="md:hidden bg-white w-full text-center space-y-4 py-5"
+    >
+      <li v-for="section in sections" :key="section">
+        <a :href="'#' + section" @click="toggleMenu" class="text-gray-800 hover:text-blue-500 block uppercase">{{ section }}</a>
+      </li>
     </ul>
-    <span class="md:hidden" @click="toggleMenu">&#9776;</span>
   </nav>
-  <!--  <nav>-->
-  <!--    <div class="container">-->
-  <!--      <h1 class="logo">Przemek Pastuszka</h1>-->
-  <!--      <ul v-bind:class="{ show: isMenuVisible }" id="nav-list">-->
-  <!--        <li><a href="#about" @click="toggleMenu">About</a></li>-->
-  <!--        <li><a href="#experience" @click="toggleMenu">Experience</a></li>-->
-  <!--        <li><a href="#education" @click="toggleMenu">Education</a></li>-->
-  <!--      </ul>-->
-  <!--      <span class="mobile-nav-toggle" @click="toggleMenu">&#9776;</span>-->
-  <!--    </div>-->
-  <!--  </nav>-->
 </template>
 
 <script lang="ts">
 export default {
   data() {
-    return {isMenuVisible: false}
+    return {isMenuVisible: false, sections: ['about', 'experience', 'education']}
   },
   methods: {
     toggleMenu() {
@@ -34,72 +41,3 @@ export default {
 }
 </script>
 
-<!--<style scoped>-->
-<!--nav {-->
-<!--  background-color: #ffffff;-->
-<!--  padding: 20px 0;-->
-<!--  position: sticky;-->
-<!--  top: 0;-->
-<!--  width: 100%;-->
-<!--  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);-->
-<!--  z-index: 999;-->
-<!--}-->
-
-<!--nav .container {-->
-<!--  display: flex;-->
-<!--  justify-content: space-between;-->
-<!--  align-items: center;-->
-<!--}-->
-
-<!--nav ul {-->
-<!--  list-style: none;-->
-<!--  display: flex;-->
-<!--  gap: 20px;-->
-<!--}-->
-
-<!--nav ul li {-->
-<!--  position: relative;-->
-<!--}-->
-
-<!--nav ul li:hover {-->
-<!--  background-color: #f4f4f9;-->
-<!--}-->
-
-<!--nav ul li a {-->
-<!--  text-decoration: none;-->
-<!--  font-size: 1.1rem;-->
-<!--  color: #333;-->
-<!--  text-transform: uppercase;-->
-<!--  font-weight: 500;-->
-<!--  transition: color 0.3s ease;-->
-<!--}-->
-
-<!--/* Mobile Navigation Toggle (Hamburger Menu) */-->
-<!--.mobile-nav-toggle {-->
-<!--  display: none;-->
-<!--  font-size: 1.8rem;-->
-<!--  cursor: pointer;-->
-<!--}-->
-
-<!--@media (max-width: 768px) {-->
-<!--  nav ul {-->
-<!--    display: none;-->
-<!--    flex-direction: column;-->
-<!--    position: absolute;-->
-<!--    top: 80px;-->
-<!--    left: 0;-->
-<!--    width: 100%;-->
-<!--    background-color: #fff;-->
-<!--    text-align: center;-->
-<!--  }-->
-
-<!--  nav ul.show {-->
-<!--    display: flex;-->
-<!--  }-->
-
-<!--  .mobile-nav-toggle {-->
-<!--    display: block;-->
-<!--    color: #333;-->
-<!--  }-->
-<!--}-->
-<!--</style>-->
