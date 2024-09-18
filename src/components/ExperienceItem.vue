@@ -7,7 +7,7 @@
       <div class="job-dates">{{ dates }}</div>
     </div>
 
-    <span class="down-arrow" @click="toggleDescription">
+    <span v-if="$slots.default" class="down-arrow" @click="toggleDescription">
         {{ isExpanded ? '▲' : '▼' }}
       </span>
 

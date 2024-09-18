@@ -70,10 +70,8 @@ export default {
         </ul>
       </div>
 
-      <div  class="paragraph">
       I've been Senior Software Engineer II at Monzo from the start but also took on the Tech Lead hat in
       October 2021.
-      </div>
     </ExperienceItem>
 
     <ExperienceItem logo="/ocado.png"
@@ -92,10 +90,8 @@ export default {
         </ul>
       </div>
 
-      <div class="paragraph">
       I was Senior Software Engineer at the beginning, but then gradually moved to being Team Leader and
       then Principal Software Engineer.
-      </div>
     </ExperienceItem>
 
     <ExperienceItem logo="/hadapt.png"
@@ -104,6 +100,13 @@ export default {
       I worked on the proprietary distributed storage system (similar to HDFS).
     </ExperienceItem>
   </ExperienceSection>
+
+  <ExperienceSection id="education">
+    <h2>Education</h2>
+    <ExperienceItem logo="/uwr.png"
+                    title="Bachelor's degree in Computer Science at University of Wrocław"
+                    dates="2009 - 2012"/>
+    </ExperienceSection>
 
   <Footer>© 2024 Przemek Pastuszka. All Rights Reserved.</Footer>
 </template>
