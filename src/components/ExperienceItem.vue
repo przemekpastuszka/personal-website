@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-[auto,1fr,auto] items-center gap-5 p-4 rounded-lg bg-white mt-2 shadow-md">
+  <div class="grid grid-cols-[auto,1fr,auto] items-center gap-5 p-4 rounded-lg bg-white mt-2 shadow-md" @click="toggleDescription" >
     <img :src="logo" alt="Company logo" class="w-12 h-12 object-contain">
 
     <div class="flex flex-col">
@@ -7,7 +7,7 @@
       <div class="text-sm text-gray-500">{{ dates }}</div>
     </div>
 
-    <span v-if="$slots.default" @click="toggleDescription" class="cursor-pointer text-xl select-none">
+    <span v-if="$slots.default" class="cursor-pointer text-xl select-none">
       {{ isExpanded ? '▲' : '▼' }}
     </span>
 
@@ -25,7 +25,9 @@ export default {
   },
   methods: {
     toggleDescription() {
-      this.isExpanded = !this.isExpanded;
+      if (this.$slots.default) {
+        this.isExpanded = !this.isExpanded;
+      }
     }
   }
 }
