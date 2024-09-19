@@ -1,8 +1,8 @@
 <template>
   <Navigation/>
 
-  <section id="about">
-    <div class="container mx-auto flex flex-wrap">
+  <section id="about" class="scroll-mt-20">
+    <div class="container mx-auto flex flex-wrap max-w-6xl">
       <div class="w-full md:w-1/2 p-4 mb-8 md:mb-0 space-y-4">
         <p class="text-lg text-gray-600">
           I'm a <strong>product-oriented engineer</strong>, caring deeply about business metrics and leveraging data to
@@ -23,7 +23,7 @@
     </div>
   </section>
 
-  <div id="experience" class="container mx-auto p-4">
+  <div id="experience" class="container mx-auto p-4 scroll-mt-20 max-w-6xl">
     <h2 class="text-3xl font-semibold text-gray-800 mb-6">Work experience</h2>
 
     <ExperienceItem logo="/Monzo-Emblem.png"
@@ -75,7 +75,7 @@
     </ExperienceItem>
   </div>
 
-  <div id="education" class="container mx-auto p-4">
+  <div id="education" class="container mx-auto p-4 scroll-mt-20 max-w-6xl">
     <h2 class="text-3xl font-semibold text-gray-800 mb-6">Education</h2>
     <ExperienceItem logo="/uwr.png"
                     title="Bachelor's degree in Computer Science at University of Wrocław"

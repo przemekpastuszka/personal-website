@@ -1,6 +1,6 @@
 <template>
   <nav class="bg-white py-5 sticky top-0 w-full shadow-md z-50">
-    <div class="container mx-auto flex justify-between items-center p-2">
+    <div class="container mx-auto flex justify-between items-center p-2 max-w-6xl">
       <h1 class="text-2xl font-bold">Przemek Pastuszka</h1>
       <ul
           :class="{'flex': isMenuVisible, 'hidden': !isMenuVisible }"
