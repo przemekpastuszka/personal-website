@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-[auto,1fr,auto] items-center gap-5 p-4 rounded-lg bg-white mt-2" @click="toggleDescription" >
+  <div class="grid grid-cols-[auto,1fr,auto] items-center gap-5 p-4 bg-white" @click="toggleDescription" >
     <img :src="logo" alt="Company logo" class="w-12 h-12 object-contain">
 
     <div class="flex flex-col">
